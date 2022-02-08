@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex,nofollow" />
   <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="css/default.css" />
-  <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
   <style type="text/css">
   
     .masthead{
@@ -35,6 +35,15 @@
 	display:inline-block;
 	margin-left:5%;
 }
+
+li.seasons a {
+    /*color:red;*/
+}
+
+header > h3{
+    background-color: yellow;
+}
+
   </style>
  </head>
  <body>
@@ -63,18 +72,9 @@
             <li>Winter: <b>#005393</b></li>
         </ul>
     </p>
-    <p>
-    Aesthetic gentrify YOLO McSweeney's typewriter single-origin coffee. Slow-carb hella listicle lomo, Helvetica single-origin coffee butcher stumptown. Chambray try-hard church-key mumblecore, tote bag PBR cardigan. Retro Austin Brooklyn, blog Intelligentsia gentrify jean shorts sartorial bicycle rights gastropub. Aesthetic wayfarers Pitchfork, tattooed Carles quinoa meh leggings distillery pork belly banjo. Umami cred lumbersexual skateboard, pork belly Tumblr vegan letterpress. Fixie bicycle rights butcher chillwave, gluten-free health goth Echo Park locavore whatever.
+    <p>    
+    This page uses jQuery to change the logo, pictures, and background color using the navigation bar.
     <img src="images/300x400.png" alt="Season Wear Goes Here" id="wear" />
-    </p>
-    <p>
-    Gluten-free selfies normcore chillwave. Listicle 90's chambray, seitan cold-pressed try-hard Etsy authentic flexitarian vinyl. Meditation bespoke freegan, single-origin coffee cred seitan 90's gentrify brunch Williamsburg squid cold-pressed. Brooklyn readymade Tumblr wayfarers ethical. Biodiesel VHS Godard High Life, tousled Banksy craft beer. Mlkshk direct trade locavore, mumblecore keytar artisan hashtag fap. Cred cronut Brooklyn, locavore art party small batch PBR semiotics ennui kitsch taxidermy mlkshk stumptown.
-    </p>
-    <p>
-    Polaroid iPhone plaid, Pitchfork Shoreditch paleo. Hashtag keytar chia scenester Pinterest, semiotics tousled food truck. YOLO scenester deep v, taxidermy paleo quinoa McSweeney's Carles VHS mustache Williamsburg gluten-free readymade cold-pressed. Truffaut Thundercats Schlitz, listicle organic Brooklyn paleo squid asymmetrical readymade migas gluten-free Austin. Etsy Wes Anderson 8-bit retro, polaroid synth paleo banh mi before they sold out Vice. Bushwick fap Intelligentsia, whatever Etsy High Life Kickstarter migas retro Banksy YOLO Carles yr raw denim. Gluten-free fixie taxidermy pop-up, actually Kickstarter flannel put a bird on it master cleanse.
-    </p>
-    <p>
-    Text provided by <a href="http://hipsum.co/" target="_blank">Hipster Ipsum</a>
     </p>
     <footer>
     <p><small>&copy; 2021 by 
@@ -85,5 +85,90 @@
     </footer>
   </main>
   <script src="js/main.js"></script>
+  <script>
+     $('document').ready(function(){
+         /*$("li.seasons a").css("color","orange");*/
+
+/*
+change pic with an id of logo to season 
+change pic with an id of wear to clothing
+
+*/
+         $("li.seasons a").click(function(e){
+             e.preventDefault();
+
+             let season = $(this).attr("href");
+             
+             if (season == "Default"){
+                $("#wear").attr('src' , 'images/300x400.png');
+
+                $("#logo").attr('src' , 'four-seasons.gif');
+
+                $("header > h3").css('color', '#2B7129')
+
+                $("html").css('background-color', '#ccc')
+
+             }
+
+             if (season == "Spring"){
+                $("#wear").attr('src' , 'images/spring-wear.jpg');
+
+                $("#logo").attr('src' , 'images/spring.gif');
+
+                $("header > h3").css('color', '#2B7129')
+
+                $("html").css('background-color', '#2B7129')
+
+             }
+             if (season == "Summer"){
+                $("#wear").attr('src' , 'images/summer-wear.jpg');
+
+                $("#logo").attr('src' , 'images/summer.gif');
+
+                $("header > h3").css('color', '#EBA52B')
+
+                $("html").css('background-color', '#EBA52B')
+
+             }
+             if (season == "Fall"){
+                $("#wear").attr('src' , 'images/fall-wear.jpg');
+
+                $("#logo").attr('src' , 'images/fall.gif');
+
+                $("header > h3").css('color', '#A81124')
+
+                $("html").css('background-color', '#A81124')
+
+             }
+             if (season == "Winter"){
+                $("#wear").attr('src' , 'images/winter-wear.jpg');
+
+                $("#logo").attr('src' , 'images/winter.gif');
+
+                $("header > h3").css('color', '#005393')
+
+                $("html").css('background-color', '#005393')
+
+             }
+
+
+
+
+
+
+
+
+             alert(season);
+
+
+
+
+
+         });
+
+     });
+
+
+  </script>
   </body>
 </html>
